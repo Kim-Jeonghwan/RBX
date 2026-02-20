@@ -18,8 +18,8 @@ stLedStatus xLed;
 
 
 /* ************************** [[  static prototype  ]]  *************************************************** */
-static void HW_writeLedPin(Uint16 Index, Uint16 State); 
-static void HW_toggleLedPin(Uint16 Index);
+static void HW_writeLedPin(uint16_t Index, uint16_t State); 
+static void HW_toggleLedPin(uint16_t Index);
 
 
 /* ************************** [[  function  ]]  *********************************************************** */
@@ -60,7 +60,7 @@ void Initial_LED(void)
  */
 void updateLedStatus(void)
 {
-    Uint16 i = 0u;
+    uint16_t i = 0u;
     stLed *pLed[2];
     
     pLed[0] = &xLed.ledGreen;
@@ -91,9 +91,9 @@ void updateLedStatus(void)
 /**
  * @brief LED 강제 점등/소등 설정
  * @param pLed 대상 LED 구조체 포인터
- * @param State LED_ON(1) 또는 LED_OFF(0)
+ * @param State LED_ON(0) 또는 LED_OFF(1)
  */
-void setLedStatus(stLed *pLed, Uint16 State)
+void setLedStatus(stLed *pLed, bool State)
 {
     if(pLed->State != State)
     {
@@ -104,10 +104,10 @@ void setLedStatus(stLed *pLed, Uint16 State)
 /**
  * @brief LED 토글 모드 및 주기 설정
  * @param pLed 대상 LED 구조체 포인터
- * @param Mode LED_TOGGLE(1) 또는 LED_NONE(0)
+ * @param Mode true: Toggle 활성, false: None
  * @param Time 토글 주기 (100ms 단위)
  */
-void setLedModeToggle(stLed *pLed, Uint16 Mode, Uint16 Time)
+void setLedModeToggle(stLed *pLed, bool Mode, uint16_t Time)
 {
     pLed->Toggle = Mode;
     pLed->Time   = Time;
@@ -116,12 +116,11 @@ void setLedModeToggle(stLed *pLed, Uint16 Mode, Uint16 Time)
 
 /**
  * @brief 시스템 상태(IsValid)에 따른 오렌지 LED 제어 로직
- * @param IsValid 데이터 유효성 상태 (0: 에러, 1: 정상)
- * @details IsValid가 0(False)일 때 오렌지 LED 상시 점등하여 에러 알림
+ * @details IsValid가 false(에러)일 때 오렌지 LED 상시 점등하여 에러 알림
  */
 void updateOrangeLed(void)
 {
-    if (xXmtIpcMsg1.IsValid == 0u)
+    if (xXmtIpcMsg1.IsValid == false)
     {
         setLedStatus(&xLed.ledOrange, LED_ON);
     }
@@ -135,7 +134,7 @@ void updateOrangeLed(void)
 /**
  * @brief 하드웨어 레지스터를 통한 LED 출력 제어 (Internal)
  */
-static void HW_writeLedPin(Uint16 Index, Uint16 State)
+static void HW_writeLedPin(uint16_t Index, uint16_t State)
 {
     GPIO_writePin(Index, (uint32_t)State);
 }
@@ -143,7 +142,7 @@ static void HW_writeLedPin(Uint16 Index, Uint16 State)
 /**
  * @brief 하드웨어 레지스터를 통한 LED 출력 반전 (Internal)
  */
-static void HW_toggleLedPin(Uint16 Index)
+static void HW_toggleLedPin(uint16_t Index)
 {
     GPIO_togglePin(Index);
 }

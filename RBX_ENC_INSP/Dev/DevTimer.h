@@ -33,13 +33,13 @@
 /* ************************** [[   enum or struct   ]]  *************************************************** */
 typedef struct
 {
-	Uint16 Cycle_1ms;
-	Uint16 Cycle_10ms;
-	Uint16 Cycle_100ms;
-	Uint16 Cycle_1000ms;
+	uint16_t Cycle_1ms;
+	uint16_t Cycle_10ms;
+	uint16_t Cycle_100ms;
+	uint16_t Cycle_1000ms;
 
-	Uint16 Hzcnt;
-	Uint16 Hz;
+	uint16_t Hzcnt;
+	uint16_t Hz;
 } stTimer;
 
 
