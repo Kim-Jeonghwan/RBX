@@ -14,9 +14,15 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#include "f28x_project.h"			// TI Á¦°ø Ä¨-Áö¿ø Çì´õ ÅëÇÕ Include ¿ë Çì´õÆÄÀÏ (bit-field)
-#include "driverlib.h"				// TI Á¦°ø Driver API Library Çì´õÆÄÀÏ (driverlib)
+/* Driverlib ë° Device ê¸°ë³¸ ì •ì˜ */
+// _DUAL_HEADERSê°€ ì„ ì–¸ë˜ì–´ ìˆì–´ì•¼ ë‘ ë°©ì‹ì„ ë³‘í–‰ ê°€ëŠ¥í•©ë‹ˆë‹¤.
+#include "driverlib.h"
 #include "device.h"
+
+/* Bit-field í—¤ë” í¬í•¨ */
+// f28x_project.h ë‚´ë¶€ì˜ Uint16 ë“±ê³¼ ì¶©ëŒì„ í”¼í•˜ê¸° ìœ„í•´ 
+// í”„ë¡œì íŠ¸ ì „ì²´ì—ì„œ ì‚¬ìš©í•˜ëŠ” íƒ€ì…ì„ ì—¬ê¸°ì„œ ì •ë¦¬í•©ë‹ˆë‹¤.
+#include "f28x_project.h"
 
 #include "DevCommon.h"
 #include "DevDspInit.h"

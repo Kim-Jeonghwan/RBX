@@ -21,6 +21,11 @@
 #ifndef _EASY28X_BITFIELD_H__
 #define _EASY28X_BITFIELD_H__
 
+// IER undefined 에러 방지를 위한 강제 선언(임의 추가 26-02-20)
+// unsigned int를 uint16_t로 변경
+extern __cregister volatile uint16_t IER;
+extern __cregister volatile uint16_t IFR;
+
 void easyDSP_SCI_Init(void);
 extern __interrupt void easy_RXINT_ISR(void);
 extern void easyDSP_SPI_Flashrom_Init(void);        // only for C2834x
@@ -69,7 +74,7 @@ static inline void easy_addRing(unsigned char y);
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Select LSPCLK
 /////////////////////////////////////////////////////////////////////////////////////////////
-#define LSP_CLK             (CPU_CLK/4)     // NOTE : LSP_CLK should be same to CPU_CLK in MotorWare��
+#define LSP_CLK             (CPU_CLK/4)     // NOTE : LSP_CLK should be same to CPU_CLK in MotorWare��
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -116,3 +121,4 @@ static inline void easy_addRing(unsigned char y);
 #endif
 
 #endif	// of _EASY28X_BITFIELD_H__
+
