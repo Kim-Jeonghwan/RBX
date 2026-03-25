@@ -1,4 +1,4 @@
-﻿/**********************************************************************
+/**********************************************************************
     Nexcom Co., Ltd.
     Filename         : CSU_LED.h
     Description      : System Status LED Control (Green / Orange)
@@ -43,7 +43,7 @@ typedef struct
     uint16_t Temp:8u;     // 카운트다운용 임시 변수
     bool     State:1;     // 현재 점등 상태 (false: Off, true: On - Active Low 고려 필요)
     bool     Toggle:1;    // 토글 모드 활성 (false: None, true: Toggle)
-    uint16_t Reserved:14u;
+    uint16_t Reserved:6u;
 } stLed;
 
 /**

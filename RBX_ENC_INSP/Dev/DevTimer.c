@@ -28,7 +28,7 @@
 
 
 /* ************************** [[   global   ]]  *********************************************************** */
-stTimer xTimer;
+volatile stTimer xTimer;
 
 
 /* ************************** [[  static prototype  ]]  *************************************************** */
@@ -123,7 +123,12 @@ static void initCPUTimers(void)
     //
     // 인터럽트 카운터 초기화
     //
-	(void)memset(&xTimer, 	0, sizeof(xTimer));		// 타이머 구조체 초기화
+	xTimer.Cycle_1ms = 0u;
+	xTimer.Cycle_10ms = 0u;
+	xTimer.Cycle_100ms = 0u;
+	xTimer.Cycle_1000ms = 0u;
+	xTimer.Hzcnt = 0u;
+	xTimer.Hz = 0u;
 }
 
 

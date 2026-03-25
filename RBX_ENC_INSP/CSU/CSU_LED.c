@@ -1,4 +1,4 @@
-﻿/**********************************************************************
+/**********************************************************************
     Nexcom Co., Ltd.
     Filename         : CSU_LED.c
     Description      : System Status LED Control (Green / Orange)
@@ -50,7 +50,7 @@ void Initial_LED(void)
 
     // Orange LED (GPIO 1) 설정
     xLed.ledOrange.Index = eLED_ORANGE;
-    setLedModeToggle(&xLed.ledOrange, LED_NONE, 0u);   // 기본 꺼짐
+    setLedModeToggle(&xLed.ledOrange, LED_NONE, 0u);   // 꺼짐 (기본)  
     setLedStatus(&xLed.ledOrange, LED_OFF);
 }
 
