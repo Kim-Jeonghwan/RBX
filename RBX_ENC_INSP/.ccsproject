@@ -15,6 +15,6 @@
 	<templateProperties value="id=com.ti.common.project.core.emptyProjectWithMainTemplate"/>
 	<filesToOpen value="main.c"/>
 	<isTargetManual value="false"/>
-	<activeTargetConfiguration value="targetConfigs/TMS320F28386D.ccxml"/>
+	<activeTargetConfiguration value="targetConfigs/TMS320F28388D.ccxml"/>
 	<isTargetConfigurationManual value="false"/>
 </projectOptions>
