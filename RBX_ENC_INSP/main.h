@@ -29,7 +29,7 @@
 #include "DevSci.h"
 #include "DevSpi.h"
 #include "DevTimer.h"
-#include "easy28x_bitfield_v11.h"
+#include "easy28x_driverlib_v12.2.h"
 
 #include "CSU_IPC.h"
 #include "CSU_LED.h"

@@ -138,6 +138,7 @@ static void InitialPeripherals(void)
 
 	Initial_SCI();
 
+
 	Initial_TIMER();
 
 	initEncoderSSI();
